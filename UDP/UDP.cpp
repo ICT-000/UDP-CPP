@@ -50,6 +50,21 @@ UDP::UDP()
 	}
 	std::cout << "Attached to JVM" << std::endl;
 
+	
+	//first loads mappings 
+	//creates globals fields: minecraft, player, ... 
+	initGlobals( env ); //maby will require this pointer arg here
+	
+	//starts joined thread where all shits happens, also enables and loads GUI 
+	//thread 1: aim assist (currently always activating with key, until GUI is done)
+	startClient( env );
+		
+	//executed after joined thread before is killed, cleans global refs and client logs from(Prefetch, register, etc)
+	cleanupClient( env );
+	
+	
+	//old shits, soon update ->
+	
 	//Setup Mapping	
 	Mapping::setup();
 	
