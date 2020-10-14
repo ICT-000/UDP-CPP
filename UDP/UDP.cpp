@@ -58,7 +58,7 @@ UDP::UDP()
 	
 	//starts joined thread where all shits happens, also enables and loads GUI 
 	//thread 1: aim assist (currently always activating with key, until GUI is done)
-	//		-> uses globals "minecraft", public passed "env" and Mappings
+	//		-> uses globals "minecraft", public passed "env" and includes other Mappings
 	startClient( env );
 		
 	//executed after joined thread before is killed, cleans global refs and client logs from(Prefetch, register, etc)
