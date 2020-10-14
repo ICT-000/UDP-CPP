@@ -12,7 +12,7 @@
   - load JVM and JNI before RemoteThread is created.
   - add optional config.yml loader where you can specify version
   - add mapping loader from resources - mappings.yml
-  - JENV reference, log and register cleanup 
+  - JNI reference/s, logs and register cleanup 
   - DLL Loader with DLL as reasource which will copy it as resource on drive and delete it when loaded
   
 ### Getting Started With a Fresh Project
