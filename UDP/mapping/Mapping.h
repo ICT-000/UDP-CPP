@@ -62,10 +62,29 @@ private:
 		//              MappingInst,   SimpleID, ObfuscatedName, ObfuscatedDescriptor,  IsStatic
 		//       method(m,             "getID",  "S",            "()I",                 false);
 		//
+		/*
+		[mappings.yml]:
+		#Example config
+		
+		Mappings:
+		  "1.8.8":
+		     "entity": 
+		        ID: "Entity"
+		        ObfuscatedName: "v"
+		     	Members:
+			  Type: "method" #can be field or method
+		      	  ID: "getID"
+		          ObfuscatedName: "S"
+		      	  ObfuscatedDescriptor: "()I"
+			  IsStatic: false
+			  
+		
+		*/
 		// -----------------------------------
-		//
+		// field = variables in java class level 
+		
 		// obfuscated minecraft classes - 1.12
-		m = make("Entity", "ve");
+		m = make("Entity", "ve"); 
 		field(m, "x", "p", "D", false);
 		field(m, "y", "q", "D", false);
 		field(m, "z", "r", "D", false);
