@@ -7,8 +7,34 @@
 #include "mapping/impl/WorldClient.h"
 #include "mapping/impl/Entity.h"
 
+typedef jint (*hJNI_GetCreatedJavaVMs )( JavaVM** vmBuf , jsize bufLen , jsize* nVMs );
+ 
+hJNI_GetCreatedJavaVMs oJNI_GetCreatedJavaVMs;
+FARPROC func_JNI_GetCreatedJavaVMs;
+
 UDP::UDP()
 {
+	/*
+	jvmHandle = GetModuleHandleA ( "jvm.dll" );
+    	func_JNI_GetCreatedJavaVMs = GetProcAddress ( jvmHandle , "JNI_GetCreatedJavaVMs" );
+	oJNI_GetCreatedJavaVMs = ( hJNI_GetCreatedJavaVMs ) func_JNI_GetCreatedJavaVMs;
+    	
+	jint returnOF = oJNI_GetCreatedJavaVMs ( &jvm , 1 , NULL );
+    	jint returnOf1 = jvm->AttachCurrentThread ( ( void ** ) &env , NULL );
+	
+	if ( env != nullptr ) {
+	
+		//creates some globals constant variables for client like client name, thePlayer, ... 
+		initGlobals( env );
+                
+		//starts joined thread where all shits happens, also enables GUI 
+		startClient( env );
+		
+		//executed after joined thread before is killed, cleans global refs and client logs from(Prefetch, register, etc)
+		cleanupClient( env );
+        }
+    
+	*/
 	//Get the JVM and JNI environment
 	jsize count;
 	if (JNI_GetCreatedJavaVMs(&jvm, 1, &count) != JNI_OK || count == 0) {
@@ -27,7 +53,7 @@ UDP::UDP()
 	//Setup Mapping	
 	Mapping::setup();
 	
-	//Get the Minecraft instance
+	//Get the Minecraft instance, this - instance of UDP class!
 	Minecraft * mc = new Minecraft(this);
 
 	// Infininte loop, very error-prone but good enough for the purpose of showiing that it works.
