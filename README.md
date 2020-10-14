@@ -2,9 +2,9 @@
 ### A Minecraft Cheat in C++
 
 ### To Do:
-  - add CreateRemoteThread(it shares all methods, fields, ... from JNI in main instance) which will replace CreateThread in dllmain
+  - cheat activation via GUI in DLL
+  - add CreateThread(it needs to share all methods, fields, ... from main thread in MainDll) instead of while(true) in UDP.cpp 
     - will need to be placed before JNI is loaded
-    - cheat activation via GUI in DLL
     - every active cheat = one thread
     - thread for checking is cheat active and start thread or kill it every 1.5s   
     - make threads share one console
