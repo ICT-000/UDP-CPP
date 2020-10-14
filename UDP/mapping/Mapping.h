@@ -15,7 +15,7 @@ class Mapping
 public:
 	Mapping() {
 		// Populate the map
-		setup();
+	//	setup();
 	}
 
 	static CM* getClass(const char* key) {		
@@ -26,7 +26,7 @@ public:
 	static const char* getClassName(const char* key) {
 		return getClass(key)->name;
 	}
-private:
+public: //private:
 	static void setup() {
 		// How to define mappings:
 		// --- Unobfuscated classes:
@@ -89,6 +89,7 @@ private:
 		method(m, "getMinecraft", "z", "()Lbhz;", true);
 	}
 
+private:
 	static void field(CM *cm, char* name, char* desc, bool isStatic) {
 		field(cm, name, name, desc, isStatic);
 	}
