@@ -53,10 +53,12 @@ UDP::UDP()
 	
 	//first loads mappings 
 	//creates globals fields: minecraft, player, ... 
-	initGlobals( env ); //maby will require this pointer arg here
+	//minecraft needs to have AbstractClass value for argument of UDP.cpp
+	initGlobals( env, this );
 	
 	//starts joined thread where all shits happens, also enables and loads GUI 
 	//thread 1: aim assist (currently always activating with key, until GUI is done)
+	//		-> uses globals "minecraft", public passed "env" and Mappings
 	startClient( env );
 		
 	//executed after joined thread before is killed, cleans global refs and client logs from(Prefetch, register, etc)
