@@ -24,6 +24,9 @@ UDP::UDP()
 	}
 	std::cout << "Attached to JVM" << std::endl;
 
+	//Setup Mapping	
+	Mapping::setup();
+	
 	//Get the Minecraft instance
 	Minecraft * mc = new Minecraft(this);
 
