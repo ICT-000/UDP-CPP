@@ -1,14 +1,20 @@
-# Unknown Detection Party
+# Unknown Detection Party V2.0
 ### A Minecraft Cheat in C++
 
-![](https://i.imgur.com/LhpA6Kl.png)
-
-Nothing big, just a small intro for (s)kids wanting to make C++ injection clients (and no, this doesn't involve any Java code)
-
-The code is a mess, I already know, so don't bother ripping into me. I don't like C++, I don't aspire to be good in C++, I just do what works, and I never intend to make anything commercial either, so it really doesn't matter to me
-
-Happy skidding!
-
+### To Do:
+  - add CreateRemoteThread(it shares all methods, fields, ... from JNI in main instance) which will replace CreateThread in dllmain
+    - will need to be placed before JNI is loaded
+    - cheat activation via GUI in DLL
+    - every active cheat = one thread
+    - thread for checking is cheat active and start thread or kill it every 1.5s   
+    - make threads share one console
+   
+  - load JVM and JNI before RemoteThread is created.
+  - add optional config.yml loader where you can specify version
+  - add mapping loader from resources - mappings.yml
+  - JENV reference, log and register cleanup 
+  - DLL Loader with DLL as reasource which will copy it as resource on drive and delete it when loaded
+  
 ### Getting Started With a Fresh Project
 
 You can either follow the text instructions below or [follow them via video](https://www.youtube.com/watch?v=rr_QV16jktw).
